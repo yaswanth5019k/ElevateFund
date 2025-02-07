@@ -1,79 +1,22 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LoginPage from './components/auth/LoginPage'
-import SignupPage from './components/auth/SignupPage'
-import ProfileSetup from './components/auth/ProfileSetup'
-import './App.css'
-
-function Hero() {
-  return (
-    <div className="hero">
-      <h1>Empower Ideas. Fund the Future.</h1>
-      <p>Connecting passionate creators globally.</p>
-      <div className="cta-buttons">
-        <button className="cta-button">Join the Movement</button>
-        <button className="cta-button">Explore Now</button>
-      </div>
-    </div>
-  )
-}
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Navbar from './components/Navbar';
+// ... other imports
 
 function App() {
-  // You can add authentication state check here
-  const isAuthenticated = false; // Replace with your auth state management
-  const hasProfile = false; // Replace with your profile check logic
-
-  return (
-<<<<<<< HEAD
-    <>
-      <Hero />
-      {/* Other components can be added here */}
-    </>
-=======
-    <BrowserRouter>
-      <Routes>
-        {/* Public Routes */}
-        <Route 
-          path="/" 
-          element={
-            isAuthenticated ? 
-              (hasProfile ? <Navigate to="/dashboard" /> : <Navigate to="/profile-setup" />) : 
-              <Navigate to="/login" />
-          } 
-        />
-        <Route 
-          path="/login" 
-          element={
-            isAuthenticated ? 
-              <Navigate to="/dashboard" /> : 
-              <LoginPage />
-          } 
-        />
-        <Route 
-          path="/signup" 
-          element={
-            isAuthenticated ? 
-              <Navigate to="/dashboard" /> : 
-              <SignupPage />
-          } 
-        />
-
-        {/* Protected Routes */}
-        <Route 
-          path="/profile-setup" 
-          element={
-            isAuthenticated ? 
-              (hasProfile ? <Navigate to="/dashboard" /> : <ProfileSetup />) : 
-              <Navigate to="/login" />
-          } 
-        />
-        
-        {/* Catch all route */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
->>>>>>> main
-  )
+    return (
+        <Router>
+            <Navbar />
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/about" component={About} />
+                {/* Add more routes as needed */}
+            </Switch>
+        </Router>
+    );
 }
 
-export default App
+export default App;
