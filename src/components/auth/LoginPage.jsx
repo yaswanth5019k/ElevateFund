@@ -31,6 +31,7 @@ const LoginPage = () => {
   };
 
   return (
+    <div className="login-page">
     <div className="login-container">
       <div className="quote-section">
         <h1>Turning ideas into reality through collective power.</h1>
@@ -66,6 +67,7 @@ const LoginPage = () => {
           <button className="social-button linkedin-button">LinkedIn</button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
