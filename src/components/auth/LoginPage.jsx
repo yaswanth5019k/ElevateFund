@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
+
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,33 +31,41 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Login Page</h2>
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <label>
-          Email:
+    <div className="login-container">
+      <div className="quote-section">
+        <h1>Turning ideas into reality through collective power.</h1>
+      </div>
+      <div className="form-section">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email:</label>
           <input 
             type="email" 
+            id="email" 
             placeholder="Email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
-            aria-label="Email"
+            required 
           />
-        </label>
-        <label>
-          Password:
+          
+          <label htmlFor="password">Password:</label>
           <input 
             type="password" 
+            id="password" 
             placeholder="Password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
-            aria-label="Password"
+            required 
           />
-        </label>
-        {error && <p className="error-message">{error}</p>}
-        {success && <p className="success-message">{success}</p>}
-        <button type="submit">Login</button>
-      </form>
+          
+          <button type="submit">Login</button>
+        </form>
+        <div className="social-login">
+          <p>Or sign in with:</p>
+          <button className="social-button google-button">Google</button>
+          <button className="social-button linkedin-button">LinkedIn</button>
+        </div>
+      </div>
     </div>
   );
 };
