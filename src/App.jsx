@@ -1,21 +1,18 @@
 import React from 'react';
-import {Router, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Navbar from './components/Navbar';
-// ... other imports
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import LandingPage from './components/LandingPage/LandingPage';
+import LoginPage from './components/auth/LoginPage';
 
 function App() {
-    return (
-        <>
-            <Navbar />
-            <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/about" component={About} />
-                {/* Add more routes as needed */}
-            </Switch>
-        </>
-    );
+  return (
+
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+
+  );
 }
 
 export default App;
