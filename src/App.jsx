@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import StartProject from './components/StartProject/StartProject'
@@ -36,7 +36,9 @@ function App() {
             </div>
             
             <div className="navbar-right">
-              <Link to="/donate" className="btn-donate">Donate</Link>
+              <Link to="/donate" className="btn-donate">
+                Donate
+              </Link>
               <button 
                 className="btn-primary"
                 onClick={handleStartProject}
@@ -55,10 +57,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={
-            <>
+            <main className="main-content">
               <Hero />
               <Footer />
-            </>
+            </main>
           } />
           <Route path="/donate" element={<Donate />} />
         </Routes>

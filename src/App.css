@@ -190,11 +190,11 @@ main {
   height: 92px;
 }
 
-.navbar-left,
-.navbar-right {
+.navbar-left {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  padding-top: 12px;
 }
 
 .logo {
@@ -203,6 +203,14 @@ main {
   color: #333;
   text-decoration: none;
   margin-right: 2rem;
+  position: relative;
+  top: 4px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-links {
@@ -233,16 +241,23 @@ main {
 }
 
 .btn-donate {
-  background-color: #4CAF50;
+  background: #4CAF50;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.2s ease;
 }
 
 .btn-donate:hover {
-  background-color: #388E3C;
+  background: #388E3C;
+  text-decoration: none;
 }
 
 .btn-primary {
