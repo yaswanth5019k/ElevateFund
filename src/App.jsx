@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <main>
         <HeroSection />
-        <StatsSection />
+    
         <FeaturedProjects />
       </main>
     </div>
