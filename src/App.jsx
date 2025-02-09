@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Hero from './components/Hero'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           </div>
         </header>
         <Hero />
+        <Footer />
       </div>
     </Router>
   )

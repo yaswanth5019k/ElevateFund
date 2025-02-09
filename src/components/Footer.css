@@ -1,0 +1,164 @@
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #DCDEDD;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+.category-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #DCDEDD;
+  padding-bottom: 2rem;
+}
+
+.category-nav a {
+  color: #282828;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.category-nav a:hover {
+  color: #2E7D32;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+  color: #282828;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul a {
+  color: #656969;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-section ul a:hover {
+  color: #2E7D32;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid #DCDEDD;
+}
+
+.footer-left {
+  color: #656969;
+  font-size: 0.9rem;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: #656969;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #2E7D32;
+}
+
+.language-currency {
+  display: flex;
+  gap: 1rem;
+}
+
+.language-select,
+.currency-select {
+  padding: 0.5rem;
+  border: 1px solid #DCDEDD;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #282828;
+  background-color: white;
+  cursor: pointer;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid #DCDEDD;
+}
+
+.footer-links a {
+  color: #656969;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #2E7D32;
+}
+
+@media (max-width: 768px) {
+  .footer-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-right {
+    flex-direction: column;
+  }
+
+  .language-currency {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    justify-content: center;
+    text-align: center;
+  }
+} 
