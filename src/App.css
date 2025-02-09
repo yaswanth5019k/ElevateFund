@@ -173,3 +173,160 @@ main {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 92px;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #666;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #4CAF50;
+}
+
+/* Button Styles */
+.btn-donate,
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  height: 42px;
+  line-height: 1;
+}
+
+.btn-donate {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-donate:hover {
+  background-color: #388E3C;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #388E3C;
+}
+
+.btn-secondary {
+  background: none;
+  border: 1px solid #E2E8F0;
+  color: #4A5568;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #F7FAFC;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  background: #F8FAFC;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2D3748;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  color: #4A5568;
+  margin-bottom: 2rem;
+}
+
+/* Main Content */
+.main-content {
+  margin-top: 92px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .navbar-right {
+    gap: 0.75rem;
+  }
+
+  .btn-donate,
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-section {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+}

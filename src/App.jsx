@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import StartProject from './components/StartProject/StartProject'
 import Login from './components/Login/Login'
+import Donate from './components/Donate/Donate'
 import './App.css'
 
 function App() {
@@ -24,35 +25,44 @@ function App() {
     <Router>
       <div className="app">
         <header className="header">
-          <div className="header-content">
-            <div className="logo">
-              <h1>ElevateFund</h1>
+          <nav className="navbar">
+            <div className="navbar-left">
+              <Link to="/" className="logo">ElevateFund</Link>
+              <div className="nav-links">
+                <a href="#search">Search</a>
+                <a href="#fundraise">Fundraise</a>
+                <a href="#about">About</a>
+              </div>
             </div>
-            <div className="search-bar">
-              <input 
-                type="text" 
-                placeholder="Search projects" 
-                className="search-input"
-              />
-            </div>
-            <div className="auth-buttons">
+            
+            <div className="navbar-right">
+              <Link to="/donate" className="btn-donate">Donate</Link>
               <button 
                 className="btn-primary"
                 onClick={handleStartProject}
               >
-                Start a project
+                Start a fundraiser
               </button>
               <button 
                 className="btn-secondary"
                 onClick={() => setIsLoginOpen(true)}
               >
-                Log in
+                Sign in
               </button>
             </div>
-          </div>
+          </nav>
         </header>
-        <Hero />
-        <Footer />
+
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Footer />
+            </>
+          } />
+          <Route path="/donate" element={<Donate />} />
+        </Routes>
+
         <StartProject 
           isOpen={isStartProjectOpen}
           onClose={handleCloseStartProject}

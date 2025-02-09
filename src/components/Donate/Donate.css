@@ -1,0 +1,245 @@
+.donate-page {
+  padding-top: 64px; /* Account for fixed navbar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.donate-hero {
+  background: #F8FAFC;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.donate-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2D3748;
+  margin-bottom: 1rem;
+}
+
+.donate-hero p {
+  font-size: 1.1rem;
+  color: #4A5568;
+  margin-bottom: 2rem;
+}
+
+.start-fundraiser-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.start-fundraiser-btn:hover {
+  background: #388E3C;
+}
+
+/* Categories Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+}
+
+.category-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.category-name {
+  font-size: 0.9rem;
+  color: #4A5568;
+  text-align: center;
+}
+
+/* Fundraisers Sections */
+.fundraisers-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fundraisers-section h2 {
+  font-size: 1.5rem;
+  color: #2D3748;
+  margin-bottom: 1.5rem;
+}
+
+.fundraisers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fundraiser-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.fundraiser-card:hover {
+  transform: translateY(-2px);
+}
+
+.fundraiser-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.fundraiser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.fundraiser-content {
+  padding: 1rem;
+}
+
+.fundraiser-content h3 {
+  font-size: 1.1rem;
+  color: #2D3748;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #E2E8F0;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.progress {
+  height: 100%;
+  background: #4CAF50;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.fundraiser-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.raised {
+  color: #2D3748;
+  font-weight: 500;
+}
+
+.goal {
+  color: #718096;
+}
+
+.see-more-link {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+  grid-column: 1 / -1;
+  text-align: right;
+  padding: 1rem 0;
+}
+
+.browse-more {
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.browse-more-btn {
+  background: none;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.browse-more-btn:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .fundraisers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .fundraisers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-hero h1 {
+    font-size: 2rem;
+  }
+
+  .category-card {
+    padding: 1rem;
+  }
+
+  .category-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.donate-page > footer {
+  margin-top: auto;
+} 
