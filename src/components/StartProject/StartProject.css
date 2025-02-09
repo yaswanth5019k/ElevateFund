@@ -4,114 +4,172 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
   font-family: 'Inter', sans-serif;
 }
 
-.start-project-modal.open {
-  display: flex;
-  opacity: 1;
-}
-
 .modal-content {
-  background-color: white;
-  border-radius: 12px;
+  background: white;
+  border-radius: 20px;
   padding: 2.5rem;
   width: 90%;
   max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(20px);
-  opacity: 0;
-  animation: slideUp 0.4s ease-out forwards;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Form Layout and Spacing */
+.form-section {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto 1.5rem;
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2.5rem;
-}
-
-.modal-header h2 {
-  font-weight: 700;
-  font-size: 1.75rem;
-  color: #1A1A1A;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 1.75rem;
-  cursor: pointer;
-  color: #666;
-  transition: color 0.3s ease;
-  padding: 0.5rem;
-  border-radius: 50%;
-}
-
-.close-button:hover {
-  color: #4CAF50;
-  background-color: rgba(76, 175, 80, 0.1);
-}
-
-.project-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.form-group label {
-  font-weight: 500;
-  color: #1A1A1A;
-  font-size: 0.95rem;
+/* Input Fields */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 12px;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-  padding: 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #FFFFFF;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  background: #ffffff;
-  color: #333333;
+  color: #2D3748;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  height: 48px;
+  line-height: 24px; /* For vertical centering */
 }
 
+.form-group textarea {
+  min-height: 120px;
+  padding-right: 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* Placeholder Styling */
 .form-group input::placeholder,
-.form-group textarea::placeholder,
-.form-group select::placeholder {
+.form-group textarea::placeholder {
   color: #B0B0B0;
   opacity: 1;
+  vertical-align: middle;
 }
 
+/* Remove Button ('X') Styling */
+.remove-button {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.remove-button:hover {
+  transform: scale(1.1);
+  background: #F7FAFC;
+}
+
+.remove-icon {
+  font-size: 14px;
+  color: #4A5568;
+  line-height: 1;
+}
+
+/* Date Picker Styling */
+input[type="month"],
+input[type="date"] {
+  padding-right: 36px; /* Space for calendar icon */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A0AEC0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+/* Add New Reward Tier Button */
+.add-button {
+  width: 100%;
+  padding: 12px 24px;
+  background: #FFFFFF;
+  border: 2px dashed #E2E8F0;
+  border-radius: 8px;
+  color: #4CAF50;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.add-button:hover {
+  background: #E8F5E9;
+  border-color: #4CAF50;
+  color: #388E3C;
+}
+
+.add-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Section Headers */
+.form-section h3 {
+  font-size: 1.1rem;
+  color: #2D3748;
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* Input Groups (for related fields) */
+.input-group {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #4A5568;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Focus States */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
@@ -120,323 +178,135 @@
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
-.form-group input[type="file"] {
-  display: none;
+/* Error States */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #E53E3E;
+  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.1);
 }
 
-.file-upload-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  font-weight: 500;
-}
-
-.file-upload-button:hover {
-  background-color: #388E3C;
-}
-
-.form-section {
-  border-top: 1px solid #E0E0E0;
-  padding-top: 2rem;
-  margin-top: 1rem;
-}
-
-.form-section h3 {
-  font-weight: 600;
-  color: #1A1A1A;
-  margin-bottom: 1.5rem;
-}
-
-.rewards-section,
-.team-section {
-  background-color: #f8f9fa;
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem 0;
-}
-
-.section-description {
-  color: #666;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-
-.reward-tier,
-.team-member {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.reward-tier:hover,
-.team-member:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-.reward-header,
-.member-header {
+/* Button Styling */
+.modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 2rem;
 }
 
-.reward-header h4,
-.member-header h4 {
-  font-weight: 600;
-  color: #2E7D32;
+.modal-header h2 {
   margin: 0;
+  font-size: 1.8rem;
+  color: #2D3748;
+  font-weight: 700;
 }
 
-.remove-button {
+.close-button {
   background: none;
   border: none;
-  color: #dc3545;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #666;
   padding: 0.5rem;
   border-radius: 50%;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.remove-button:hover {
-  background-color: rgba(220, 53, 69, 0.1);
-}
-
-.remove-icon {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.reward-inputs,
-.member-inputs {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.input-group label {
-  font-weight: 500;
+.close-button:hover {
+  background-color: #f0f0f0;
   color: #333;
-  font-size: 0.9rem;
 }
 
-.input-group input,
-.input-group textarea,
-.input-group select {
-  padding: 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: #ffffff;
-  color: #333333;
-}
-
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group select:focus {
-  border-color: #4CAF50;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-  outline: none;
-}
-
-.input-group input::placeholder,
-.input-group textarea::placeholder,
-.input-group select::placeholder {
-  color: #B0B0B0;
-  opacity: 1;
-}
-
-.input-group input:not(:placeholder-shown),
-.input-group textarea:not(:placeholder-shown),
-.input-group select:not(:placeholder-shown) {
-  color: #333333;
-}
-
-.add-button {
-  width: 100%;
-  padding: 1rem;
-  border: 2px dashed #e0e0e0;
-  border-radius: 12px;
-  background: none;
-  color: #4CAF50;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.add-button:hover {
-  border-color: #4CAF50;
-  background-color: rgba(76, 175, 80, 0.05);
-}
-
-.add-icon {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
+/* Action Buttons */
 .form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #E0E0E0;
+  margin-top: 2rem;
 }
 
 .cancel-button,
 .submit-button {
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 12px;
-  cursor: pointer;
-  font-weight: 500;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .cancel-button {
   background: none;
-  border: 1px solid #E0E0E0;
-  color: #666;
-}
-
-.cancel-button:hover {
-  background-color: #F5F5F5;
-  border-color: #666;
+  border: 1px solid #E2E8F0;
+  color: #4A5568;
 }
 
 .submit-button {
-  background-color: #4CAF50;
+  background: #4CAF50;
   border: none;
   color: white;
 }
 
+.cancel-button:hover {
+  background: #F7FAFC;
+}
+
 .submit-button:hover {
-  background-color: #388E3C;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  background: #388E3C;
 }
 
-.submit-button:active {
-  transform: translateY(0);
-}
-
-.error-message {
-  color: #DC3545;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.error-message::before {
-  content: "!";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  background-color: #DC3545;
-  color: white;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: bold;
-}
-
-.character-count {
-  font-size: 0.875rem;
-  color: #666;
-  text-align: right;
-  margin-top: 0.25rem;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .modal-content {
-    padding: 1.5rem;
     width: 95%;
-    margin: 1rem;
+    padding: 1.5rem;
+    max-height: 95vh;
   }
 
-  .form-actions {
-    flex-direction: column-reverse;
-    gap: 1rem;
-  }
-
-  .cancel-button,
-  .submit-button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .reward-inputs,
-  .member-inputs {
-    grid-template-columns: 1fr;
-  }
-
-  .reward-tier,
-  .team-member {
+  .form-section {
     padding: 1rem;
-  }
-
-  .rewards-section,
-  .team-section {
-    padding: 1rem;
+    margin: 0 auto 1rem;
   }
 
   .form-group input,
   .form-group textarea,
   .form-group select {
-    font-size: 16px; /* Prevents zoom on mobile */
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+
+  .add-button {
+    padding: 10px 16px;
+  }
+
+  .remove-button {
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .input-group {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .submit-button {
+    width: 100%;
   }
 }
 
-/* Custom scrollbar */
-.modal-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background: #F5F5F5;
-  border-radius: 4px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-  background: #4CAF50;
-  border-radius: 4px;
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-  background: #388E3C;
-}
-
-/* Animation for new items */
-@keyframes fadeSlideIn {
+/* Animation */
+@keyframes modalFadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -444,34 +314,175 @@
   }
 }
 
-.reward-tier,
-.team-member {
-  animation: fadeSlideIn 0.3s ease-out forwards;
+/* Animation for new sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* For Firefox */
-.input-group input::-moz-placeholder,
-.input-group textarea::-moz-placeholder,
-.input-group select::-moz-placeholder,
-.form-group input::-moz-placeholder,
-.form-group textarea::-moz-placeholder,
-.form-group select::-moz-placeholder {
-  color: #B0B0B0;
+.form-section {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #F7FAFC;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #CBD5E0;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #A0AEC0;
+}
+
+/* Rewards and Team Members Sections */
+.reward-tier,
+.team-member {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Input styling for Rewards and Team Members */
+.reward-tier input,
+.reward-tier textarea,
+.reward-tier select,
+.team-member input,
+.team-member textarea,
+.team-member select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #FFFFFF;
+  font-size: 1rem;
+  color: #2D3748; /* Input text color */
+  transition: all 0.2s ease-in-out;
+  height: 48px;
+  line-height: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Placeholder styling for Rewards and Team Members */
+.reward-tier input::placeholder,
+.reward-tier textarea::placeholder,
+.reward-tier select::placeholder,
+.team-member input::placeholder,
+.team-member textarea::placeholder,
+.team-member select::placeholder {
+  color: #B0B0B0; /* Placeholder color */
   opacity: 1;
 }
 
-/* For Edge */
-.input-group input:-ms-input-placeholder,
-.input-group textarea:-ms-input-placeholder,
-.input-group select:-ms-input-placeholder,
-.form-group input:-ms-input-placeholder,
-.form-group textarea:-ms-input-placeholder,
-.form-group select:-ms-input-placeholder {
-  color: #B0B0B0;
+/* Focus states */
+.reward-tier input:focus,
+.reward-tier textarea:focus,
+.reward-tier select:focus,
+.team-member input:focus,
+.team-member textarea:focus,
+.team-member select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
-/* Selected option in select elements */
-.input-group select option,
-.form-group select option {
-  color: #333333;
+/* Textarea specific styling */
+.reward-tier textarea,
+.team-member textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Section headers */
+.reward-tier h4,
+.team-member h4 {
+  color: #2D3748;
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Input groups within sections */
+.reward-inputs,
+.member-inputs {
+  display: grid;
+  gap: 12px;
+}
+
+/* Labels within sections */
+.reward-tier label,
+.team-member label {
+  display: block;
+  margin-bottom: 6px;
+  color: #4A5568;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Error states */
+.reward-tier input.error,
+.reward-tier textarea.error,
+.team-member input.error,
+.team-member textarea.error {
+  border-color: #E53E3E;
+  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .reward-tier,
+  .team-member {
+    padding: 1rem;
+  }
+
+  .reward-inputs,
+  .member-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .reward-tier input,
+  .reward-tier textarea,
+  .reward-tier select,
+  .team-member input,
+  .team-member textarea,
+  .team-member select {
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+}
+
+/* Animation for new rewards/team members */
+.reward-tier,
+.team-member {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 

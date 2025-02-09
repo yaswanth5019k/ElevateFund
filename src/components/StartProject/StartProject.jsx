@@ -206,16 +206,16 @@ function StartProject({ isOpen, onClose }) {
     }));
   };
 
+  if (!isOpen) return null; // Don't render anything if not open
+
   return (
-    <div className={`start-project-modal ${isOpen ? 'open' : ''}`}>
+    <div className="start-project-modal">
       <div className="modal-content">
         <div className="modal-header">
           <h2>Start Your Project</h2>
-          <button className="close-button" onClick={onClose}>
-            <span className="close-icon">×</span>
-          </button>
+          <button className="close-button" onClick={onClose}>×</button>
         </div>
-
+        
         <form onSubmit={handleSubmit} className="project-form">
           <div className="form-step">
             <div className="form-group">

@@ -10,6 +10,16 @@ function App() {
   const [isStartProjectOpen, setIsStartProjectOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
 
+  const handleStartProject = () => {
+    setIsStartProjectOpen(true)
+    document.body.style.overflow = 'hidden' // Prevent background scrolling
+  }
+
+  const handleCloseStartProject = () => {
+    setIsStartProjectOpen(false)
+    document.body.style.overflow = 'unset' // Restore scrolling
+  }
+
   return (
     <Router>
       <div className="app">
@@ -28,7 +38,7 @@ function App() {
             <div className="auth-buttons">
               <button 
                 className="btn-primary"
-                onClick={() => setIsStartProjectOpen(true)}
+                onClick={handleStartProject}
               >
                 Start a project
               </button>
@@ -45,7 +55,7 @@ function App() {
         <Footer />
         <StartProject 
           isOpen={isStartProjectOpen}
-          onClose={() => setIsStartProjectOpen(false)}
+          onClose={handleCloseStartProject}
         />
         <Login 
           isOpen={isLoginOpen}
