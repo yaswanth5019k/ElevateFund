@@ -3,10 +3,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import StartProject from './components/StartProject/StartProject'
+import Login from './components/Login/Login'
 import './App.css'
 
 function App() {
   const [isStartProjectOpen, setIsStartProjectOpen] = useState(false)
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
 
   return (
     <Router>
@@ -30,7 +32,12 @@ function App() {
               >
                 Start a project
               </button>
-              <button className="btn-secondary">Log in</button>
+              <button 
+                className="btn-secondary"
+                onClick={() => setIsLoginOpen(true)}
+              >
+                Log in
+              </button>
             </div>
           </div>
         </header>
@@ -39,6 +46,10 @@ function App() {
         <StartProject 
           isOpen={isStartProjectOpen}
           onClose={() => setIsStartProjectOpen(false)}
+        />
+        <Login 
+          isOpen={isLoginOpen}
+          onClose={() => setIsLoginOpen(false)}
         />
       </div>
     </Router>
