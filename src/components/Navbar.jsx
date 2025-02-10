@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Assuming you are managing login state
-  const navigate = useNavigate(); // Hook for navigation
-  const location = useLocation(); // Get the current location
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const openStartProject = () => {
     if (isLoggedIn) {
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   const navOptions = [
     { name: "Home", path: "/home" },
-    { name: "Fundraise", path: "/fundraise" },
+    { name: "Block", path: "/blog" },
     { name: "About", path: "/about" },
     { name: "Search", path: "/search" },
   ];
@@ -41,24 +42,40 @@ const Navbar = () => {
           </div>
           <div className="nav-links">
             {navOptions.map((navOption, index) => (
-              <Link
-                key={index}
-                to={navOption.path}
-                className={location.pathname === navOption.path ? "active" : ""}
-              >
-                {navOption.name}
-              </Link>
+              <motion.div key={index} whileHover={{ y: -2 }}>
+                <motionLink
+                  to={navOption.path}
+                  className={location.pathname === navOption.path ? "active" : ""}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {navOption.name}
+                </motionLink>
+              </motion.div>
             ))}
           </div>
         </div>
 
         <div className="navbar-right">
-          <button className="btn-donate" onClick={openDonate}>
-            Donate
-          </button>
-          <button className="btn-fundraiser" onClick={openStartProject}>
-            Start Fundraiser
-          </button>
+        <motion.button
+          className="btn-donate"
+          onClick={openDonate}
+          whileTap={{ scale: 0.95 }}  // Only shrink on tap
+        >
+          <span>Donate</span>
+        </motion.button>
+
+
+        <motion.button
+          className="btn-fundraiser"
+          onClick={openStartProject}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span>Start Fundraiser</span>
+        </motion.button>
+
+
+
         </div>
       </nav>
     </header>

@@ -2,6 +2,7 @@
   background-color: #ffffff;
   border-bottom: 1px solid #e6e6e6;
   position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
@@ -43,21 +44,33 @@
   cursor: pointer;
 }
 
+/* Active link styling */
+.nav-links .active {
+  font-weight: bold;
+  color: #388E3C; /* Active link color */
+  border-bottom: 2px solid #388E3C; /* Underline effect */
+  text-decoration: none; /* Ensure no extra underline */
+  pointer-events: none; /* Prevents hover effect */
+}
+
+/* Hover effect for non-active links */
 .nav-links a:hover {
   color: #4CAF50;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
 
+/* Remove text decoration from active links to avoid double underline */
+.nav-links a.active:hover {
+  text-decoration: none;
+}
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.btn-donate,
-.btn-primary,
-.btn-secondary {
+.btn-donate{
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   height: 42px;
@@ -65,31 +78,81 @@
 }
 
 .btn-donate {
+  position: relative;
+  overflow: hidden; /* Ensures the animation stays within the button */
   border: 1px solid #4CAF50;
-  background-color: white;
+  background: white;
   color: black;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: color 0.3s ease, border 0.3s ease;
+}
+
+.btn-donate::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 250%;
+  height: 250%;
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%) translateY(100%);
+  z-index: 0;
+}
+
+.btn-donate:hover::before {
+  transform: translateX(0) translateY(0);
 }
 
 .btn-donate:hover {
-  background: #388E3C;
   color: white;
   border: none;
 }
 
-.btn-fundraiser{
+.btn-donate span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fundraiser {
+  position: relative;
   background-color: #388E3C;
   color: white;
+  border: none;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  overflow: hidden;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.nav-links .active {
-  font-weight: bold;
-  color: #388E3C; /* Active link color */
-  border-bottom: 2px solid #388E3C; /* Underline the active link */
+.btn-fundraiser::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 90%;
+  border: 2px solid #388E3C;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  transform: rotate(0deg);
+  z-index: -1;
+}
+
+.btn-fundraiser:hover {
+  color: black;
+  background-color: white;
+}
+
+.btn-fundraiser:hover::before {
+  transform: rotate(180deg); /* Rotate border on hover */
+}
+
+.btn-fundraiser span {
+  position: relative;
+  z-index: 1;
 }
