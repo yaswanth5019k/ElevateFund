@@ -44,23 +44,21 @@
   cursor: pointer;
 }
 
-/* Active link styling */
+
 .nav-links .active {
   font-weight: bold;
-  color: #388E3C; /* Active link color */
-  border-bottom: 2px solid #388E3C; /* Underline effect */
-  text-decoration: none; /* Ensure no extra underline */
-  pointer-events: none; /* Prevents hover effect */
+  color: #388E3C; 
+  border-bottom: 2px solid #388E3C; 
+  text-decoration: none; 
+  pointer-events: none;/
 }
 
-/* Hover effect for non-active links */
 .nav-links a:hover {
   color: #4CAF50;
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
 
-/* Remove text decoration from active links to avoid double underline */
 .nav-links a.active:hover {
   text-decoration: none;
 }
@@ -79,7 +77,7 @@
 
 .btn-donate {
   position: relative;
-  overflow: hidden; /* Ensures the animation stays within the button */
+  overflow: hidden; 
   border: 1px solid #4CAF50;
   background: white;
   color: black;
@@ -134,7 +132,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 95%;
+  width: 97%;
   height: 90%;
   border: 2px solid #388E3C;
   border-radius: 8px;
@@ -149,7 +147,7 @@
 }
 
 .btn-fundraiser:hover::before {
-  transform: rotate(180deg); /* Rotate border on hover */
+  transform: rotate(180deg); 
 }
 
 .btn-fundraiser span {

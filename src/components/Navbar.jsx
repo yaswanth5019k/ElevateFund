@@ -1,34 +1,36 @@
-import React, { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import "./Navbar.css";
+// src/components/Navbar.jsx
+import React from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useAuth } from '../AuthContext';
+import './Navbar.css';
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn } = useAuth(); // Access login state from context
   const navigate = useNavigate();
   const location = useLocation();
 
   const openStartProject = () => {
     if (isLoggedIn) {
-      navigate("/startproject");
+      navigate('/startproject');
     } else {
-      navigate("/login");
+      navigate('/login');
     }
   };
 
   const openDonate = () => {
     if (isLoggedIn) {
-      navigate("/donate");
+      navigate('/donate');
     } else {
-      navigate("/login");
+      navigate('/login');
     }
   };
 
   const navOptions = [
-    { name: "Home", path: "/home" },
-    { name: "Block", path: "/blog" },
-    { name: "About", path: "/about" },
-    { name: "Search", path: "/search" },
+    { name: 'Home', path: '/home' },
+    { name: 'Block', path: '/blog' },
+    { name: 'About', path: '/about' },
+    { name: 'Search', path: '/search' },
   ];
 
   return (
@@ -43,39 +45,34 @@ const Navbar = () => {
           <div className="nav-links">
             {navOptions.map((navOption, index) => (
               <motion.div key={index} whileHover={{ y: -2 }}>
-                <motionLink
+                <Link
                   to={navOption.path}
-                  className={location.pathname === navOption.path ? "active" : ""}
-                  whileHover={{ scale: 1.1 }}
+                  className={location.pathname === navOption.path ? 'active' : ''}
                 >
                   {navOption.name}
-                </motionLink>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
 
         <div className="navbar-right">
-        <motion.button
-          className="btn-donate"
-          onClick={openDonate}
-          whileTap={{ scale: 0.95 }}  // Only shrink on tap
-        >
-          <span>Donate</span>
-        </motion.button>
+          <motion.button
+            className="btn-donate"
+            onClick={openDonate}
+            whileTap={{ scale: 0.95 }}
+          >
+            Donate
+          </motion.button>
 
-
-        <motion.button
-          className="btn-fundraiser"
-          onClick={openStartProject}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span>Start Fundraiser</span>
-        </motion.button>
-
-
-
+          <motion.button
+            className="btn-fundraiser"
+            onClick={openStartProject}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95,}}
+          >
+            Start Fundraiser
+          </motion.button>
         </div>
       </nav>
     </header>

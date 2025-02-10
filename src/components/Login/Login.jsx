@@ -1,22 +1,26 @@
-import React, { useState } from "react";
-import "./Login.css";
+// src/components/Login/Login.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
+import './Login.css';
 
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
   });
   const [errors, setErrors] = useState({});
+  const { login } = useAuth(); // Get login function from context
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
@@ -31,16 +35,12 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Handle login logic here
-      console.log('Login attempted with:', formData);
+      login(); // Mark user as logged in
+      navigate('/home'); // Redirect to home after successful login
     }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSubmit(e);
-    }
-  };
+
 
   return (
     <div className="login-container">
@@ -80,7 +80,6 @@ function Login() {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  onKeyPress={handleKeyPress}
                   className={errors.email ? 'error' : ''}
                 />
               </div>
@@ -100,7 +99,6 @@ function Login() {
                   placeholder="Password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  onKeyPress={handleKeyPress}
                   className={errors.password ? 'error' : ''}
                 />
               </div>
