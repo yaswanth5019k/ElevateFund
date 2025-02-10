@@ -1,29 +1,30 @@
-import React, { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Navber from './components/Navbar'
+import React from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import StartProject from './components/StartProject/StartProject'
-import Login from './components/Login/Login'
 import Donate from './components/Donate/Donate'
 import './App.css'
+// import LoginPage from './components/auth/LoginPage'
+import Login from './components/Login/Login'
 
 function App() {
 
   return (
     
-      <div className="app"> 
-        <Navber />
+    <div className="app"> 
+      <Navbar />
         <Routes>
-          <Route path="/" element={
-            <main className="main-content">
-              <Hero />
-              <Footer />
-            </main>
-          } />
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Hero />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/startproject" element={<StartProject />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
-      </div>
+        <Footer />
+    </div>
+
   )
 }
 

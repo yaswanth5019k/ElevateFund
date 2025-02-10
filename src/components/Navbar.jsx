@@ -1,67 +1,68 @@
-// import { useState } from 'react'
-import './Navbar.css'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import StartProject from './StartProject/StartProject'
-import Login from './Login/Login'
-import Donate from './Donate/Donate'
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Assuming you are managing login state
+  const navigate = useNavigate(); // Hook for navigation
+  const location = useLocation(); // Get the current location
 
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isStartProjectOpen, setIsStartProjectOpen] = useState(false);
+  const openStartProject = () => {
+    if (isLoggedIn) {
+      navigate("/startproject");
+    } else {
+      navigate("/login");
+    }
+  };
 
-  const handleStartProject = () => {
-    setIsStartProjectOpen(true)
-    document.body.style.overflow = 'hidden' // Prevent background scrolling
-  }
+  const openDonate = () => {
+    if (isLoggedIn) {
+      navigate("/donate");
+    } else {
+      navigate("/login");
+    }
+  };
 
-  const handleCloseStartProject = () => {
-    setIsStartProjectOpen(false)
-    document.body.style.overflow = 'unset' // Restore scrolling
-  }
+  const navOptions = [
+    { name: "Home", path: "/home" },
+    { name: "Fundraise", path: "/fundraise" },
+    { name: "About", path: "/about" },
+    { name: "Search", path: "/search" },
+  ];
 
   return (
     <header className="header">
       <nav className="navbar">
         <div className="navbar-left">
-          <Link to="/" className="logo">ElevateFund</Link>
+          <div>
+            <Link to="/">
+              <h1>FundBlock</h1>
+            </Link>
+          </div>
           <div className="nav-links">
-            <a href="#search">Search</a>
-            <a href="#fundraise">Fundraise</a>
-            <a href="#about">About</a>
+            {navOptions.map((navOption, index) => (
+              <Link
+                key={index}
+                to={navOption.path}
+                className={location.pathname === navOption.path ? "active" : ""}
+              >
+                {navOption.name}
+              </Link>
+            ))}
           </div>
         </div>
-        
+
         <div className="navbar-right">
-          <Link to="/donate" className="btn-donate" >
+          <button className="btn-donate" onClick={openDonate}>
             Donate
-          </Link>
-          <button 
-            className="btn-primary"
-            onClick={handleStartProject}
-          >
-            Start a fundraiser
           </button>
-          <button 
-            className="btn-secondary"
-            onClick={() => setIsLoginOpen(true)}
-          >
-            Sign in
+          <button className="btn-fundraiser" onClick={openStartProject}>
+            Start Fundraiser
           </button>
         </div>
       </nav>
-      <StartProject 
-        isOpen={isStartProjectOpen}
-        onClose={handleCloseStartProject}
-      />
-      <Login 
-        isOpen={isLoginOpen}
-        onClose={() => setIsLoginOpen(false)}
-      />
     </header>
-    
-  )
-}
+  );
+};
 
-export default Navbar 
+export default Navbar;

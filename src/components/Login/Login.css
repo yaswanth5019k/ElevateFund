@@ -1,41 +1,10 @@
-.login-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #6B46C1 0%, #9F7AEA 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-  z-index: 1000;
-}
-
-.login-modal.open {
-  opacity: 1;
-  visibility: visible;
-}
-
 .login-container {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 900px;
-  min-height: 500px;
   display: flex;
-  overflow: hidden;
-  transform: translateY(20px);
-  animation: slideUp 0.4s ease-out forwards;
-}
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 20px;
 
-@keyframes slideUp {
-  to {
-    transform: translateY(0);
-  }
 }
 
 .login-illustration {
@@ -47,69 +16,9 @@
   padding: 2rem;
 }
 
-.illustration-wrapper {
-  position: relative;
-  width: 200px;
-  height: 200px;
-}
-
-.laptop-icon {
-  width: 120px;
-  height: 120px;
-  background: #E2E8F0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.user-avatar {
-  width: 60px;
-  height: 60px;
-  fill: #4A5568;
-}
-
-.decoration-dots {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.dot {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dot-1 { top: 0; left: 0; background: #4CAF50; }
-.dot-2 { top: 0; right: 0; background: #9F7AEA; }
-.dot-3 { bottom: 0; left: 0; background: #6B46C1; }
-.dot-4 { bottom: 0; right: 0; background: #4CAF50; }
-
 .login-form-container {
   flex: 1;
   padding: 3rem;
-  position: relative;
-}
-
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #666;
-  transition: color 0.3s ease;
-}
-
-.close-button:hover {
-  color: #333;
 }
 
 .login-form-content {
@@ -148,13 +57,6 @@ h2 {
   width: 20px;
   height: 20px;
   pointer-events: none;
-  z-index: 2;
-}
-
-.icon-email svg,
-.icon-lock svg {
-  width: 18px;
-  height: 18px;
 }
 
 .input-wrapper input {
@@ -165,25 +67,6 @@ h2 {
   border-radius: 15px;
   background: #F0F0F0;
   font-size: 1rem;
-  transition: all 0.2s ease-in-out;
-  color: #2D3748;
-}
-
-.input-wrapper input::placeholder {
-  color: #B0B0B0;
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-  text-align: left;
-}
-
-.input-wrapper input:focus {
-  outline: none;
-  border-color: #4CAF50;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-}
-
-.input-wrapper input:focus::placeholder {
-  opacity: 0.8;
 }
 
 .input-wrapper input.error {
@@ -211,10 +94,6 @@ h2 {
   margin-top: 1rem;
 }
 
-.login-button:hover {
-  background: #388E3C;
-}
-
 .form-links {
   margin-top: 1.5rem;
   display: flex;
@@ -228,11 +107,6 @@ h2 {
   color: #4A5568;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.create-account-link {
-  align-self: flex-end;
 }
 
 .forgot-link:hover,
@@ -243,66 +117,5 @@ h2 {
 @media (max-width: 768px) {
   .login-container {
     flex-direction: column;
-    max-height: 90vh;
-  }
-
-  .login-illustration {
-    padding: 2rem;
-  }
-
-  .login-form-container {
-    padding: 2rem;
-  }
-
-  .illustration-wrapper {
-    width: 150px;
-    height: 150px;
-  }
-
-  .laptop-icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  .form-links {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .create-account-link {
-    align-self: center;
-  }
-
-  .input-wrapper input {
-    height: 44px;
-    font-size: 16px;
-    padding: 0 14px 0 38px;
-  }
-
-  .icon-email,
-  .icon-lock {
-    left: 10px;
-  }
-
-  .icon-email svg,
-  .icon-lock svg {
-    width: 16px;
-    height: 16px;
   }
 }
-
-.input-wrapper input::-moz-placeholder {
-  color: #B0B0B0;
-  opacity: 1;
-  line-height: 48px;
-}
-
-.input-wrapper input:-ms-input-placeholder {
-  color: #B0B0B0;
-  line-height: 48px;
-}
-
-.input-wrapper input::-webkit-input-placeholder {
-  color: #B0B0B0;
-  line-height: 48px;
-} 

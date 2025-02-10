@@ -212,7 +212,7 @@ function Donate() {
         <button className="browse-more-btn">Browse more categories</button>
       </div>
 
-      <Footer />
+      
     </div>
   );
 }
