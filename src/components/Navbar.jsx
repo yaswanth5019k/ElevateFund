@@ -1,8 +1,15 @@
 // import { useState } from 'react'
 import './Navbar.css'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import StartProject from './StartProject/StartProject'
+import Login from './Login/Login'
+import Donate from './Donate/Donate'
 
 const Navbar = () => {
+
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isStartProjectOpen, setIsStartProjectOpen] = useState(false);
 
   const handleStartProject = () => {
     setIsStartProjectOpen(true)
@@ -27,7 +34,7 @@ const Navbar = () => {
         </div>
         
         <div className="navbar-right">
-          <Link to="/donate" className="btn-donate">
+          <Link to="/donate" className="btn-donate" >
             Donate
           </Link>
           <button 
@@ -44,7 +51,16 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
+      <StartProject 
+        isOpen={isStartProjectOpen}
+        onClose={handleCloseStartProject}
+      />
+      <Login 
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+      />
     </header>
+    
   )
 }
 
