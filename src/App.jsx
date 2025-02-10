@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
+import Navber from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
 import StartProject from './components/StartProject/StartProject'
@@ -11,18 +12,8 @@ function App() {
   const [isStartProjectOpen, setIsStartProjectOpen] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false)
 
-  const handleStartProject = () => {
-    setIsStartProjectOpen(true)
-    document.body.style.overflow = 'hidden' // Prevent background scrolling
-  }
-
-  const handleCloseStartProject = () => {
-    setIsStartProjectOpen(false)
-    document.body.style.overflow = 'unset' // Restore scrolling
-  }
-
   return (
-    <Router>
+    
       <div className="app">
         <header className="header">
           <nav className="navbar">
@@ -54,6 +45,7 @@ function App() {
             </div>
           </nav>
         </header>
+        <Navber />
 
         <Routes>
           <Route path="/" element={
@@ -74,7 +66,6 @@ function App() {
           onClose={() => setIsLoginOpen(false)}
         />
       </div>
-    </Router>
   )
 }
 

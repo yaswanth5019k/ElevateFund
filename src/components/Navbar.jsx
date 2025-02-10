@@ -1,46 +1,50 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './Navbar.css'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  const [searchQuery, setSearchQuery] = useState('')
 
-  const categories = [
-    'Art', 'Comics', 'Crafts', 'Dance', 'Design', 
-    'Fashion', 'Film', 'Food', 'Games', 'Journalism', 
-    'Music', 'Photography', 'Publishing', 'Technology', 'Theater'
-  ]
+  const handleStartProject = () => {
+    setIsStartProjectOpen(true)
+    document.body.style.overflow = 'hidden' // Prevent background scrolling
+  }
+
+  const handleCloseStartProject = () => {
+    setIsStartProjectOpen(false)
+    document.body.style.overflow = 'unset' // Restore scrolling
+  }
 
   return (
-    <nav className="navbar">
-      <div className="navbar-main">
-        <div className="logo">
-          <a href="/">ElevateFund</a>
+    <header className="header">
+      <nav className="navbar">
+        <div className="navbar-left">
+          <Link to="/" className="logo">ElevateFund</Link>
+          <div className="nav-links">
+            <a href="#search">Search</a>
+            <a href="#fundraise">Fundraise</a>
+            <a href="#about">About</a>
+          </div>
         </div>
         
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search projects, creators, and categories"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+        <div className="navbar-right">
+          <Link to="/donate" className="btn-donate">
+            Donate
+          </Link>
+          <button 
+            className="btn-primary"
+            onClick={handleStartProject}
+          >
+            Start a fundraiser
+          </button>
+          <button 
+            className="btn-secondary"
+            onClick={() => setIsLoginOpen(true)}
+          >
+            Sign in
+          </button>
         </div>
-        
-        <div className="nav-actions">
-          <button className="btn-secondary">Start a project</button>
-          <button className="btn-text">Log in</button>
-        </div>
-      </div>
-      
-      <div className="categories-nav">
-        {categories.map(category => (
-          <a key={category} href={`/category/${category.toLowerCase()}`} className="category-link">
-            {category}
-          </a>
-        ))}
-        <a href="/discover" className="category-link">Discover</a>
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }
 
