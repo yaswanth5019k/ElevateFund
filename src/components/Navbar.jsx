@@ -1,4 +1,4 @@
-// src/components/Navbar.jsx
+
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -6,7 +6,7 @@ import { useAuth } from '../AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { isLoggedIn } = useAuth(); // Access login state from context
+  const { isLoggedIn } = useAuth(); 
   const navigate = useNavigate();
   const location = useLocation();
 
