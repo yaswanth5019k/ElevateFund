@@ -10,6 +10,7 @@ import './App.css'
 import Login from './components/Login/Login'
 import About from './components/About/About'
 import Blog from './components/Blog/Blog'
+import Search from './components/Search/Search'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
         <Footer />
     </div>
