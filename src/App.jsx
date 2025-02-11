@@ -8,6 +8,7 @@ import Donate from './components/Donate/Donate'
 import './App.css'
 // import LoginPage from './components/auth/LoginPage'
 import Login from './components/Login/Login'
+import About from './components/About/About'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/startproject" element={<StartProject />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
     </div>
