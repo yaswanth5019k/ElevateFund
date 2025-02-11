@@ -13,9 +13,9 @@ function Hero() {
   const creatorAvatar = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop";
 
   const stats = [
-    { number: '273031', label: 'PROJECTS FUNDED' },
-    { number: '8539699278', label: 'TOWARDS CREATIVE WORK' },
-    { number: '100301151', label: 'PLEDGES' }
+    { number: '273', label: 'PROJECTS FUNDED' },
+    { number: '853', label: 'TOWARDS CREATIVE WORK' },
+    { number: '1003', label: 'PLEDGES' }
   ];
 
   const featuredProjects = [

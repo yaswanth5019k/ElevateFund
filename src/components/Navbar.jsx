@@ -60,7 +60,6 @@ const Navbar = () => {
           <motion.button
             className="btn-donate"
             onClick={openDonate}
-            whileTap={{ scale: 0.95 }}
           >
             Donate
           </motion.button>
@@ -68,8 +67,6 @@ const Navbar = () => {
           <motion.button
             className="btn-fundraiser"
             onClick={openStartProject}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95,}}
           >
             Start Fundraiser
           </motion.button>
