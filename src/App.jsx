@@ -9,6 +9,7 @@ import './App.css'
 // import LoginPage from './components/auth/LoginPage'
 import Login from './components/Login/Login'
 import About from './components/About/About'
+import Blog from './components/Blog/Blog'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/startproject" element={<StartProject />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer />
     </div>
