@@ -162,7 +162,7 @@ function Hero() {
           transition={{ delay: 0.2, duration: 0.6 }} // Delay the animation slightly
         >
           <h1>Bring a creative project to life.</h1>
-          <p className="subtitle">With us in FundBlock</p>
+          <p className="subtitle">With us in Elevate Fund</p>
         </motion.div>
 
         <motion.div className="stats-container"

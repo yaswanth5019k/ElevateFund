@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const navOptions = [
     { name: 'Home', path: '/home' },
-    { name: 'Block', path: '/blog' },
+    { name: 'Blog', path: '/blog' },
     { name: 'About', path: '/about' },
     { name: 'Search', path: '/search' },
   ];
@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="navbar-left">
           <div>
             <Link to="/">
-              <h1>FundBlock</h1>
+              <h1>Elevate Fund</h1>
             </Link>
           </div>
           <div className="nav-links">
