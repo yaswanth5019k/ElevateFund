@@ -36,7 +36,7 @@ function Login() {
     e.preventDefault();
     if (validateForm()) {
       login(); // Mark user as logged in
-      navigate('/home'); // Redirect to home after successful login
+      navigate('/donate'); // Redirect to home after successful login
     }
   };
 
