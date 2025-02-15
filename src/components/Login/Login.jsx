@@ -1,6 +1,6 @@
 // src/components/Login/Login.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 import './Login.css';
 
@@ -109,9 +109,9 @@ function Login() {
               <a href="#" className="forgot-link">
                 Forgot Username / Password?
               </a>
-              <a href="/signup" className="create-account-link">
+              <Link to="/signup" className="create-account-link">
                 Create your Account →
-              </a>
+              </Link>
             </div>
           </form>
         </div>
