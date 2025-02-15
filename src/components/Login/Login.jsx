@@ -109,7 +109,7 @@ function Login() {
               <a href="#" className="forgot-link">
                 Forgot Username / Password?
               </a>
-              <a href="#" className="create-account-link">
+              <a href="/signup" className="create-account-link">
                 Create your Account →
               </a>
             </div>
