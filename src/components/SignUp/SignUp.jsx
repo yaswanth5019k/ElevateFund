@@ -141,6 +141,30 @@ function SignUp() {
               </div>
               {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
             </div>
+            {/* Role Selection */}
+            <div className="form-group">
+              <label>I am a:</label>
+              <div className="role-selection">
+                <label>
+                  <input 
+                    type="radio" 
+                    name='role'
+                    value="Donator"
+                    checked={formData.role === 'Donator'}
+                    onChange={handleInputChange}
+                  /> Donator
+                </label>
+                <label>
+                  <input 
+                    type="radio" 
+                    name='role'
+                    value="Fundraiser"
+                    checked={formData.role === 'Fundraiser'}
+                    onChange={handleInputChange}
+                  /> Fundraiser
+                </label>
+              </div>
+            </div>
 
             <button type="submit" className="signup-button">
               CREATE ACCOUNT

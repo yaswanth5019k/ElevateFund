@@ -37,6 +37,25 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
+.form-group label {
+  font-size: 1rem;
+  color: #4A5568;
+  margin-bottom: 0.5rem;
+}
+.form-group .role-selection{
+  display: flex;
+  gap: 1rem;
+}
+
+.role-selection input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .input-wrapper {
   position: relative;
   display: flex;

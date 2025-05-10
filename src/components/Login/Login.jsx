@@ -105,31 +105,6 @@ function Login() {
               {errors.password && <span className="error-message">{errors.password}</span>}
             </div>
 
-            {/* Role Selection */}
-            <div className="form-group">
-              <label style={{ marginBottom: '0.5rem', display: 'block', fontWeight: 500 }}>I am a:</label>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <label>
-                  <input
-                    type="radio"
-                    name="role"
-                    value="donor"
-                    checked={formData.role === 'donor'}
-                    onChange={handleInputChange}
-                  /> Donor (Giver)
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="role"
-                    value="seeker"
-                    checked={formData.role === 'seeker'}
-                    onChange={handleInputChange}
-                  /> Seeker (Fundraiser)
-                </label>
-              </div>
-            </div>
-
             <button type="submit" className="login-button">
               LOGIN
             </button>
