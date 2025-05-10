@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
+import axios from 'axios'; // Import axios for API calls
 import './Login.css';
 
 function Login() {
@@ -10,7 +11,8 @@ function Login() {
     password: '',
   });
   const [errors, setErrors] = useState({});
-  const { login } = useAuth(); 
+  const [apiError, setApiError] = useState(''); // State for API errors
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -32,14 +34,28 @@ function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      login(); // Mark user as logged in
-      if (formData.role === 'donor') {
-        navigate('/donate');
-      } else {
-        navigate('/profile');
+      try {
+        // Send login request to the backend
+        const response = await axios.post('http://localhost:8080/users', {
+          email: formData.email,
+          password: formData.password,
+        });
+
+        // Handle successful login
+        const { token, role } = response.data;
+        login(token); // Save token in context or localStorage
+        if (role === 'donor') {
+          navigate('/donate');
+        } else {
+          navigate('/profile');
+        }
+      } catch (error) {
+        // Handle API errors
+        console.error('Login error:', error);
+        setApiError(error.response?.data?.message || 'Login failed. Please try again.');
       }
     }
   };
@@ -104,6 +120,8 @@ function Login() {
               </div>
               {errors.password && <span className="error-message">{errors.password}</span>}
             </div>
+
+            {apiError && <p className="api-error-message">{apiError}</p>}
 
             <button type="submit" className="login-button">
               LOGIN
