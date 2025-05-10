@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
@@ -13,11 +13,14 @@ import Blog from './components/Blog/Blog'
 import Search from './components/Search/Search'
 import SignUp from './components/SignUp/SignUp'
 import ScrollToTop from './components/ScrollToTop'
+import Profile from './components/Profile/Profile'
 
 function App() {
+  const location = useLocation();
+  const hideFooterPaths = ['/profile'];
+  const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
-    
     <div className="app"> 
       <Navbar />
       <ScrollToTop />
@@ -31,10 +34,10 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/search" element={<Search />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-      <Footer />
+      {shouldShowFooter && <Footer />}
     </div>
-
   )
 }
 

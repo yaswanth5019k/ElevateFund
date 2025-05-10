@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -27,9 +26,9 @@ const Navbar = () => {
   };
 
   const navOptions = [
-    { name: 'Home', path: '/home' },
+    ...(isLoggedIn ? [] : [{ name: 'Home', path: '/home' }]),
     { name: 'Blog', path: '/blog' },
-    { name: 'About', path: '/about' },
+    { name: isLoggedIn ? 'Profile' : 'About', path: isLoggedIn ? '/profile' : '/about' },
     { name: 'Search', path: '/search' },
   ];
 
@@ -57,19 +56,23 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-right">
-          <motion.button
-            className="btn-donate"
-            onClick={openDonate}
-          >
-            Donate
-          </motion.button>
+          {!isLoggedIn && (
+            <>
+              <motion.button
+                className="btn-donate"
+                onClick={openDonate}
+              >
+                Donate
+              </motion.button>
 
-          <motion.button
-            className="btn-fundraiser"
-            onClick={openStartProject}
-          >
-            Start Fundraiser
-          </motion.button>
+              <motion.button
+                className="btn-fundraiser"
+                onClick={openStartProject}
+              >
+                Start Fundraiser
+              </motion.button>
+            </>
+          )}
         </div>
       </nav>
     </header>
