@@ -1,5 +1,5 @@
 .about-page {
-  padding-top: 92px; /* Match navbar height */
+  padding-top: 0;
 }
 
 .about-hero {
@@ -27,7 +27,7 @@
 }
 
 section {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 section h2 {

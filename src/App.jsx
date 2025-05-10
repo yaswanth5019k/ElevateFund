@@ -12,6 +12,7 @@ import About from './components/About/About'
 import Blog from './components/Blog/Blog'
 import Search from './components/Search/Search'
 import SignUp from './components/SignUp/SignUp'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
 
@@ -19,18 +20,19 @@ function App() {
     
     <div className="app"> 
       <Navbar />
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Hero />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/startproject" element={<StartProject />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-        <Footer />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Hero />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/startproject" element={<StartProject />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+      <Footer />
     </div>
 
   )

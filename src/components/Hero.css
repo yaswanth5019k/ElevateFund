@@ -69,7 +69,7 @@
 }
 
 .hero-section {
-  padding: 92px 0 40px;
+  padding: 0 0 40px;
   background: linear-gradient(to bottom, #f8fafc, #ffffff);
 }
 
@@ -318,7 +318,7 @@
 
 /* Open Call Section */
 .open-call-section {
-  margin: 4rem 0;
+  margin: 2rem 0;
 }
 
 .open-call-grid {

@@ -1,5 +1,5 @@
 .blog-page {
-  padding-top: 92px; /* Match navbar height */
+  padding-top: 0;
 }
 
 .blog-hero {
@@ -27,7 +27,7 @@
 }
 
 section {
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
 section h2 {

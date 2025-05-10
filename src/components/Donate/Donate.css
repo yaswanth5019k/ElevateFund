@@ -1,5 +1,5 @@
 .donate-page {
-  padding-top: 64px; /* Account for fixed navbar */
+  padding-top: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -179,7 +179,7 @@
 .browse-more {
   text-align: center;
   padding: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .browse-more-btn {
