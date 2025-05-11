@@ -84,7 +84,7 @@ button {
   border-color: #4a90e2;
   box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
 }
-
+/* 
 button[type="submit"] {
   width: 100%;
   padding: 0.75rem;
@@ -95,11 +95,11 @@ button[type="submit"] {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
-}
+} */
 
-button[type="submit"]:hover {
+/* button[type="submit"]:hover {
   background-color: #357abd;
-}
+} */
 
 .message {
   padding: 1rem;
